@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <div class="main">
+        <input type="number" name="num1" id="num1" placeholder="Ingresa un numero">
+        <input type="number" name="num2" id="num2" placeholder="Ingresa un numero">
+
+        <select name="operacion" id="operacion">
+            <option value="suma">Sumar</option>
+            <option value="Restar">Restar</option>
+            <option value="Multi">Multiplicar</option>
+            <option value="div">Dividir</option>
+        </select>
+
+        <button onclick="calcular()">Calcular</button>
+        <hr>
+
+        <span id="resultado"></span>
+    </div>
+
+    <script>
+
+        let num1 = parseFloat(document.getElementById("num1").value);
+        let num2 = parseFloat(document.getElementById("num2").value);
+        let tipoOperacion = document.getElementById("operacion");
+        let select = tipoOperacion.options[tipoOperacion.selectedIndex].value;
+
+        let resultado = document.getElementById("resultado");
+
+
+        function Operacion (v1, v2){
+            this.num1 = v1;
+            this.num2 = v2;
+
+        }
+
+        let suma = new Operacion(num1, num2);
+        suma.sumar = function(){
+            this.resultado = this.num1 + this.num2;
+            console.log(this.num1, this.num2);
+            resultado.innerText = this.resultado;
+        }
+
+        let resta = new Operacion(num1, num2)
+        resta.restar = function(){
+            return this.resultado = this.num1 - this.num2;
+        }
+
+        let multi = new Operacion(num1, num2)
+        resta.restar = function(){
+            return this.resultado = this.num1 - this.num2;
+        }
+
+        let div = new Operacion(num1, num2)
+        resta.dividir = function(){
+            return this.num2 != 0 ? this.num1 / this.num2 : "Error: No se puede dividir entre cero.";
+        }
+
+       
+
+        function calcular(){
+            switch (select) {
+                case "suma":
+                    suma.sumar();
+                    break;
+                case "resta":
+                    document.write(operacion1.restar());
+                    break;
+                case "multi":
+                    document.write(operacion1.multi());
+                    break;
+                case "div":
+                    document.write(operacion1.div());
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 1</title>
+</head>
+<body>
+    <script>
+        document.cookie = "usuario = Ada Lovelace;";
+        document.cookie = "sexo = mujer;";
+
+        //Leer una cookie
+        let miCookie = document.cookie;
+        alert(miCookie);
+
+        //Modificar una cookie
+        document.cookie = "sexo = hombre;";
+        alert(document.cookie);
+
+        //Eliminar cookie
+        document.cookie = "usuario=;";
+        document.cookie = "sexo=;"
+        alert(document.cookie);
+    </script>
+</body>
+</html>

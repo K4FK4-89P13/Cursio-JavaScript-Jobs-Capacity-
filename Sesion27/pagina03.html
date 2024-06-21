@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 3</title>
+</head>
+<body>
+    <button type="button" id="verTodas">Ver todas las cookies</button>
+    <button type="button" id="crearCookie">Crear Cookie</button>
+    <button type="button" id="modificarCookie">Modificar Cookie</button>
+    <button type="button" id="leerCookie">Leer Cookie</button>
+    <button type="button" id="borrarCookie">Borrar Cookie</button>
+
+    <script>
+        document.getElementById("verTodas").addEventListener("click", verCookies);
+        document.getElementById("crearCookie").addEventListener("click", modificarCookie);
+        document.getElementById("modificarCookie").addEventListener("click", modificarCookie);
+
+        function verCookies(){
+            //alert ("Oscar Palza es CABRO");
+            alert("Cookies actuales:\n" + document.cookie);
+        }
+
+        function modificarCookie(){
+            let nombre = prompt("Introduzca el nombre de la cookie");
+            let valor = prompt("Introduzca su valor");
+            let expiracion = parseInt(prompt("Numero de dias para expirar"));
+
+            //setCookie(nombre, valor, expiracion);
+            //verrCookies();
+        }
+
+        function setCookie(nombre, valor, expiracion){
+            let d = new Date();
+            d.setTime(d.getTime() + expiracion * 24 * 60 * 60 * 1000);
+            let expiracion = "expires=" + d.toUTCString();
+            document.cookie = nombre + "=" + valor + ";" + expiracion + ";path=/";
+        }
+    </script>
+</body>
+</html>

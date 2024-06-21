@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <h1>Registro de Alumnos</h1>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre">
+
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido">
+
+    <label for="dni">DNI:</label>
+    <input type="text" id="dni">
+
+    <label for="direccion">Dirección:</label>
+    <input type="text" id="direccion">
+
+    <label for="telefono">Teléfono:</label>
+    <input type="text" id="telefono">
+    
+    <label for="carrera">Carrera:</label>
+    <input type="text" id="carrera">
+    <br><br>
+
+    <button onclick="registrarAlumno()">Registrar Alumno</button>
+    
+    <h2>Alumnos Registrados:</h2>
+    <ul id="listaAlumnos"></ul>
+
+    <script>
+        const alumnos = [];
+
+        function registrarAlumno() {
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const dni = document.getElementById('dni').value;
+            const direccion = document.getElementById('direccion').value;
+            const telefono = document.getElementById('telefono').value;
+            const carrera = document.getElementById('carrera').value;
+
+            const alumno = {
+                nombre,
+                apellido,
+                dni,
+                direccion,
+                telefono,
+                carrera
+            };
+
+            alumnos.push(alumno);
+            actualizarLista();
+        }
+
+        function actualizarLista() {
+            const lista = document.getElementById('listaAlumnos');
+            lista.innerHTML = '';
+            alumnos.forEach(alumno => {
+                const item = document.createElement('li');
+                item.textContent = `Nombres: ${alumno.nombre} ${alumno.apellido} - DNI: ${alumno.dni} - Dirección: ${alumno.direccion} - Teléfono: ${alumno.telefono} - Carrera: ${alumno.carrera}`;
+                lista.appendChild(item);
+            });
+        }
+    </script>
+</body>
+</html>

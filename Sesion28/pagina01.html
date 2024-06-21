@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 1</title>
+</head>
+<body>
+    <script>
+        /* if (typeof(Storage) !== "undefined"){
+            alert("El navegador soporta webstorage");
+        }else{
+            alert("El navegador No soporta WebStorage");
+        } */
+
+        localStorage.setItem("nombre", "Ada");
+        localStorage.apellido = "Lovelace";
+
+        //Consultar un elemento
+        /* alert(localStorage.getItem("nombre")); //MEJOR
+        alert(localStorage.apellido); */ //PEOR
+
+        localStorage.removeItem("apellido");
+        alert(localStorage.getItem("nombre") + " " + localStorage.getItem("apellido"));
+
+        localStorage.clear();
+        alert(localStorage.getItem("nombre") + " " + localStorage.getItem("apellido"));
+    </script>
+</body>
+</html>

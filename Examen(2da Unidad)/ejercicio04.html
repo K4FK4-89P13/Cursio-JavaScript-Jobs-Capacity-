@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <h1>Comparar Variables</h1>
+    <label for="var1">Variable 1:</label>
+    <input type="text" id="var1">
+    <label for="var2">Variable 2:</label>
+    <input type="text" id="var2">
+    <label for="var3">Variable 3:</label>
+    <input type="text" id="var3">
+    <br><br>
+    <button onclick="compararVariables()">Comparar</button>
+    <h2>Resultado: <span id="resultado"></span></h2>
+
+    <script>
+        function compararVariables() {
+            const var1 = document.getElementById('var1').value;
+            const var2 = document.getElementById('var2').value;
+            const var3 = document.getElementById('var3').value;
+            let resultado = '';
+
+            if (var1 === var2 && var2 === var3) {
+                resultado = 'Las tres variables son iguales';
+            } else if (var1 === var2 || var1 === var3 || var2 === var3) {
+                resultado = 'Dos de las variables son iguales';
+            } else {
+                resultado = 'Ninguna de las variables es igual';
+            }
+
+            document.getElementById('resultado').innerText = resultado;
+        }
+    </script>
+</body>
+</html>

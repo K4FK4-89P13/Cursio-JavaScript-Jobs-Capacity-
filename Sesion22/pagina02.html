@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 2</title>
+</head>
+<body>
+    <h1>Modelo de eventos avanzados de Microsoft</h1>
+    <h3 id="ms">Modelo del Microsoft</h3>
+    <h3 id="msanonima">Modelo Microsoft</h3>
+
+    <script>
+        document.getElementById("ms").attachEvent("click", saludarUnaVez);
+        document.getElementById("ms").attachEvent("click", colorear);
+        document.getElementById("ms").attachEvent("onmouseover", fondo);
+
+        function saludarUnaVez(){
+            alert("Hola chanchito");
+            document.getElementById("ms").dettachEvent("click", saludarUnaVez);
+        }
+
+        function colorear(){
+            document.getElementById("ms").style.color = "red";
+        }
+
+        function fondo (){
+            document.getElementById("ms").style.background = "blue";
+        }
+
+        document.getElementById("msanonima").attachEvent("click", function(){this.style.background = "#c0c0c0"});
+    </script>
+</body>
+</html>

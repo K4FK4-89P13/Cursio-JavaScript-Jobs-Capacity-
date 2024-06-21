@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 1</title>
+</head>
+<body>
+    <h1>Modelo de eventos avanzados de W3C</h1>
+    <h3 id="w3c">Modelo del W3C</h3>
+    <h3 id="w3canonima">Modelo de W3C con funciones anonimas</h3>
+
+    <script>
+        document.getElementById("w3c").addEventListener("click", saludarUnaVez, false);
+        document.getElementById("w3c").addEventListener("click", colorear, false);
+        document.getElementById("w3c").addEventListener("click", fondo, false);
+
+        function saludarUnaVez(){
+            alert("Hola chanchito felíz");
+            document.getElementById("w3c").removeEventListener("click", saludarUnaVez);
+        }
+
+        function colorear(){
+            document.getElementById("w3c").style.color = "red";
+        }
+
+        function fondo (){
+            document.getElementById("w3c").style.background = "blue";
+        }
+
+        document.getElementById("w3canonima").addEventListener("click", function(){this.style.background = "#c0c0c0"});
+    </script>
+</body>
+</html>
