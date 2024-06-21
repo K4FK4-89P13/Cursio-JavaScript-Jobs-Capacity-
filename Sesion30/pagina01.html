@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="texto">
+        <h1>AJAX</h1>
+        <button id="cambiaContenido">Cambia el contenido</button>
+    </div>
+
+    <script>
+
+        function cambiaContenido() {
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("texto").innerHTML = this.responseText;
+                }
+            }
+
+            xhr.open("GET", "holamundo.txt", true);
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
