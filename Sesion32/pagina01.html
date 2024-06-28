@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX con php y JSON</title>
+    <script>
+        window.addEventListener("load", inicio);
+
+        function inicio() {
+            document.getElementById("mostrar").addEventListener("click", mostrar);
+        }
+
+        function mostrar() {
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    //al hacer parse de un array recibimos de un array de objetos
+                    let alumnos = JSON.parse(this.responseText);
+
+                    //recorremos el array
+                    for (let i = 0; i < alumnos.length; i++) {
+                        document.getElementById("parrafo").innerHTML += alumnos[i].nombre + "<br>";
+                        
+                    }
+
+                    //para mostrar un array javascript en cadena JSON usamos JSON.stringify
+                    let cadena = JSON.stringify(alumnos);
+                    document.getElementById("parrafo").innerHTML += `el array ${alumnos} en modo cadena es ${cadena}<br>`;
+                }
+            }
+            xhr.open("GET", "backend.php", true);
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <button id="mostrar">Mostrar</button>
+    <p id="parrafo"></p>
+</body>
+</html>
